@@ -1,0 +1,59 @@
+type Query {
+  getMovies: QueryMoviesResponse!
+  getMovie(id: String!): QueryMovieResponse!
+}
+
+type Mutation {
+  addMovies(input: MoviesInput!): MutationAddingMoviesResponse!
+}
+
+input MoviesInput {
+  id: String!
+  adult: Boolean
+  backdropPath: String
+  genreIds: [Int]
+  originalLanguage: String
+  originalTitle: String
+  overview: String
+  popularity: Float
+  posterPath: String
+  releaseDate: String
+  title: String
+  video: Boolean
+  voteAverage: Float
+  voteCount: Int
+}
+
+type MutationAddingMoviesResponse {
+  statusCode: Int!
+  message: String!
+}
+
+type QueryMoviesResponse {
+  statusCode: Int!
+  message: String!
+  data: [Movies]
+}
+
+type QueryMovieResponse {
+  statusCode: Int!
+  message: String!
+  data: Movies
+}
+
+type Movies {
+  id: String!
+  adult: Boolean
+  backdropPath: String
+  genreIds: [Int]
+  originalLanguage: String
+  originalTitle: String
+  overview: String
+  popularity: Float
+  posterPath: String
+  releaseDate: String
+  title: String
+  video: Boolean
+  voteAverage: Float
+  voteCount: Int
+}
